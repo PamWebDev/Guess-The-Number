@@ -7,7 +7,7 @@ class TestSystemNumber(unittest.TestCase):
     def test_valid_system_number(self, mock_random_number):
         resultSystemNumber = system_number()
         self.assertEqual(resultSystemNumber, 32, 'Test failed, expected to return number 32')
-        mock_random_number.assert_called_with(1, 100)
+        mock_random_number.assert_called_with(1, 5)
 
 if __name__ == '__main__':
     unittest.main()

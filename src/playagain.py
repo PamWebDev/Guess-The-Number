@@ -7,7 +7,7 @@ def play_again(gameFunction):
         print("\nPlease enter a valid answer (Yes/No)")
         answerPlayAgain = input("\n☆ Do you want play again? (Yes/No): ")
 
-    if answerPlayAgain == "Yes":
+    if answerPlayAgain in ('Yes', 'yes'):
         gameFunction()
     else:
         print("Thanks for playing!")
