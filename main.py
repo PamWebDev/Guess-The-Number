@@ -10,11 +10,11 @@ from src.intelligencesystem import system_intelligence
 def game():
     """ Reproduciendo juego """
     #? OBTENIENDO NÚMERO GANADOR:
-    winningNumber = random.randint(1,5)
+    winningNumber = random.randint(1, 10)
     print(winningNumber)
 
     #? DESCRIPCIÓN DE BIENVENIDA:
-    print("Welcome to 'Guess The Number'\nIn this game you will take turns with the system to guess a random number between 1 and 100.")
+    print("\nWelcome to 'Guess The Number'\nIn this game you will take turns with the system to guess a random number between 1 and 100.")
 
     #? INGRESANDO NOMBRE DE USUARIA (y dandole primera indicación):
     userName = input("\nBefore we begin, what's your name?\n--> ")
@@ -24,10 +24,10 @@ def game():
     #? ALMACENANDO INTENTOS DE COMPUTADORA:
     systemNumberList = []
     #? ALMACENANDO PISTAS
-    hintLowerNumber = "Tip: Try a lower number!"
-    hintHigherNumber = "Tip: Try a higher number!"
     # Almacenando número de computadora
     systemNumber = system_number()
+    hintUser = ''
+    hintSystem = ''
 
     while winningNumber:
         #? ESTRUCTURA DE USUARIA:
@@ -40,10 +40,11 @@ def game():
         userNumberList.append(validUserNumber)
         # Brindando pistas a la usuaria:
         if validUserNumber < winningNumber:
-            print(hintHigherNumber)
-        else:
-            if validUserNumber > winningNumber:
-                print(hintLowerNumber)
+            hintUser = "Tip: Try a higher number!"
+            print(hintUser)
+        elif validUserNumber > winningNumber:
+            hintUser = "Tip: Try a lower number!"
+            print(hintUser)
         # Verificando si la usuaria es la ganadora
         if validUserNumber == winningNumber:
             print(f"\nCongratulations {validUserName}! You guessed the number")
@@ -63,12 +64,13 @@ def game():
             break
         # Brindando pistas a la computadora:
         if systemNumber < winningNumber:
-            print(hintHigherNumber)
-            systemNumber = system_intelligence(systemNumber, hintHigherNumber)
-        else:
-            if systemNumber > winningNumber:
-                print(hintLowerNumber)
-                systemNumber = system_intelligence(systemNumber, hintLowerNumber)
+            hintSystem = "Tip: Try a higher number!"
+            print(hintSystem)
+            systemNumber = system_intelligence(systemNumber, hintSystem, hintUser, 1, 10)
+        elif systemNumber > winningNumber:
+            hintSystem = "Tip: Try a lower number!"
+            print(hintSystem)
+            systemNumber = system_intelligence(systemNumber, hintSystem, hintUser, 1, 10)
 
     play_again(game)
 

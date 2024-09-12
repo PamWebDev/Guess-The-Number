@@ -3,6 +3,6 @@ import random
 
 def system_number():
     """ Obteniendo número aleatorio """
-    systemNumber = random.randint(1, 5)
+    systemNumber = random.randint(1, 10)
 
     return systemNumber

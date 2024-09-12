@@ -12,7 +12,7 @@ def user_number(userNumber):
 
     userNumber = number_is_number(userNumber)
 
-    while int(userNumber) <= 0 or int(userNumber) > 100:
+    while int(userNumber) <= 0 or int(userNumber) > 10:
         print("\nPlease, enter a number between 1 and 100")
         userNumber = input("\nEnter your guess: ")
         userNumber = number_is_number(userNumber)
