@@ -11,7 +11,7 @@ def game():
     """ Reproduciendo juego """
     #? OBTENIENDO NÚMERO GANADOR:
     winningNumber = random.randint(1, 10)
-    print(winningNumber)
+    # print(winningNumber)
 
     #? DESCRIPCIÓN DE BIENVENIDA:
     print("\nWelcome to 'Guess The Number'\nIn this game you will take turns with the system to guess a random number between 1 and 100.")
